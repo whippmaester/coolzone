@@ -934,9 +934,17 @@ audio.currentTime = pct * audio.duration;
 // Close welcome popup and play theme
 function closePopup() {
 document.getElementById(‘welcomePopup’).classList.remove(‘show’);
+try {
 audio.volume = 0.5;
-audio.play().catch(e => console.log(‘Audio play failed:’, e));
+const promise = audio.play();
+if (promise !== undefined) {
+promise.then(() => {
 playPauseBtn.textContent = ‘⏸’;
+}).catch(e => console.log(‘Audio play failed:’, e));
+}
+} catch(e) {
+console.log(‘Audio error:’, e);
+}
 }
 
 // Fake link click
