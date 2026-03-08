@@ -432,14 +432,14 @@ footer .badge {
   <div class="popup-window">
     <div class="popup-titlebar">
       <span>⚠️ Welcome!</span>
-      <span class="win-btn" onclick="closePopup()">✕</span>
+      <span class="win-btn" id="popupCloseX">✕</span>
     </div>
     <div class="popup-body">
       <p>🌟 NOW ENTERING THE COOL ZONE 🌟</p>
       <p style="font-size:14px;">Best viewed in Netscape Navigator 4.0<br>at 800x600 resolution</p>
-      <button class="win95-btn" onclick="closePopup()">OK</button>
+      <button class="win95-btn" id="popupOK">OK</button>
       &nbsp;
-      <button class="win95-btn" onclick="closePopup()">Cancel</button>
+      <button class="win95-btn" id="popupCancel">Cancel</button>
     </div>
   </div>
 </div>
@@ -935,6 +935,9 @@ audio.currentTime = pct * audio.duration;
 function closePopup() {
 document.getElementById(‘welcomePopup’).classList.remove(‘show’);
 }
+document.getElementById(‘popupOK’).addEventListener(‘click’, closePopup);
+document.getElementById(‘popupCancel’).addEventListener(‘click’, closePopup);
+document.getElementById(‘popupCloseX’).addEventListener(‘click’, closePopup);
 
 // Fake link click
 function fakeClick(name) {
@@ -981,7 +984,6 @@ document.getElementById(‘pollResults’).style.display = ‘block’;
 
 // Quotes
 const quotes = [
-[’“I farted.”’, ‘— Kaleb’],
 [’“The Internet is not just one thing, it's a collection of things.”’, ‘— Al Gore, probably’],
 [’“Be yourself; everyone else is already taken.”’, ‘— Oscar Wilde’],
 [’“To infinity and beyond!!”’, ‘— Buzz Lightyear’],
