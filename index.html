@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <meta charset="UTF-8">
@@ -7,427 +6,421 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
 
-```
-* { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-  background-color: #000080;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='10' height='10' fill='%23000090'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23000090'/%3E%3C/svg%3E");
-  font-family: 'Times New Roman', serif;
-  color: #000000;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+    body {
+      background-color: #000080;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='10' height='10' fill='%23000090'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23000090'/%3E%3C/svg%3E");
+      font-family: 'Times New Roman', serif;
+      color: #000000;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-/* Scrolling marquee top bar */
-.top-bar {
-  background: #000000;
-  color: #00ff00;
-  font-family: 'VT323', monospace;
-  font-size: 20px;
-  padding: 4px 0;
-  border-bottom: 3px solid #ffff00;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.marquee-inner {
-  display: inline-block;
-  animation: scroll-left 20s linear infinite;
-}
-@keyframes scroll-left {
-  from { transform: translateX(100vw); }
-  to { transform: translateX(-100%); }
-}
+    /* Scrolling marquee top bar */
+    .top-bar {
+      background: #000000;
+      color: #00ff00;
+      font-family: 'VT323', monospace;
+      font-size: 20px;
+      padding: 4px 0;
+      border-bottom: 3px solid #ffff00;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-inner {
+      display: inline-block;
+      animation: scroll-left 20s linear infinite;
+    }
+    @keyframes scroll-left {
+      from { transform: translateX(100vw); }
+      to { transform: translateX(-100%); }
+    }
 
-/* Main wrapper */
-.wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  background: #c0c0c0;
-  border: 4px outset #ffffff;
-  min-height: 100vh;
-}
+    /* Main wrapper */
+    .wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #c0c0c0;
+      border: 4px outset #ffffff;
+      min-height: 100vh;
+    }
 
-/* Header */
-.site-header {
-  background: #000080;
-  padding: 10px;
-  text-align: center;
-  border-bottom: 4px inset #808080;
-}
-.site-title {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 22px;
-  color: #ffff00;
-  text-shadow: 3px 3px #ff0000, -1px -1px #00ff00;
-  animation: rainbow 1.5s linear infinite;
-}
-@keyframes rainbow {
-  0%   { color: #ff0000; }
-  15%  { color: #ff8800; }
-  30%  { color: #ffff00; }
-  45%  { color: #00ff00; }
-  60%  { color: #0088ff; }
-  75%  { color: #8800ff; }
-  90%  { color: #ff00ff; }
-  100% { color: #ff0000; }
-}
-.site-subtitle {
-  color: #00ffff;
-  font-family: 'VT323', monospace;
-  font-size: 18px;
-  margin-top: 4px;
-}
+    /* Header */
+    .site-header {
+      background: #000080;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 4px inset #808080;
+    }
+    .site-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 22px;
+      color: #ffff00;
+      text-shadow: 3px 3px #ff0000, -1px -1px #00ff00;
+      animation: rainbow 1.5s linear infinite;
+    }
+    @keyframes rainbow {
+      0%   { color: #ff0000; }
+      15%  { color: #ff8800; }
+      30%  { color: #ffff00; }
+      45%  { color: #00ff00; }
+      60%  { color: #0088ff; }
+      75%  { color: #8800ff; }
+      90%  { color: #ff00ff; }
+      100% { color: #ff0000; }
+    }
+    .site-subtitle {
+      color: #00ffff;
+      font-family: 'VT323', monospace;
+      font-size: 18px;
+      margin-top: 4px;
+    }
 
 
-/* Music player */
-.music-player {
-  background: #000000;
-  border-top: 2px solid #333;
-  border-bottom: 3px solid #ffff00;
-  padding: 6px 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'VT323', monospace;
-}
-.music-play-btn {
-  background: #c0c0c0;
-  border: 2px outset #ffffff;
-  font-size: 16px;
-  width: 32px;
-  height: 28px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #000;
-}
-.music-play-btn:active { border-style: inset; }
-.music-info {
-  color: #00ff00;
-  font-size: 15px;
-  flex-shrink: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 160px;
-}
-.music-info-inner {
-  display: inline-block;
-  animation: scroll-left 10s linear infinite;
-}
-.music-progress-wrap {
-  flex: 1;
-  height: 14px;
-  background: #333;
-  border: 2px inset #555;
-  cursor: pointer;
-  position: relative;
-}
-.music-progress-bar {
-  height: 100%;
-  background: repeating-linear-gradient(90deg, #00cc00 0px, #00ff00 4px, #00cc00 8px);
-  width: 0%;
-  transition: width 0.5s linear;
-}
-.music-time {
-  color: #00ff00;
-  font-size: 15px;
-  flex-shrink: 0;
-  min-width: 70px;
-  text-align: right;
-}
-.under-construction {
-  background: #ffff00;
-  border: 3px solid #ff8800;
-  padding: 5px 10px;
-  text-align: center;
-  font-family: 'VT323', monospace;
-  font-size: 18px;
-  color: #ff0000;
-  animation: blink 0.7s step-end infinite;
-  margin: 6px 10px;
-}
-@keyframes blink { 50% { opacity: 0; } }
+    /* Music player */
+    .music-player {
+      background: #000000;
+      border-top: 2px solid #333;
+      border-bottom: 3px solid #ffff00;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'VT323', monospace;
+    }
+    .music-play-btn {
+      background: #c0c0c0;
+      border: 2px outset #ffffff;
+      font-size: 16px;
+      width: 32px;
+      height: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #000;
+    }
+    .music-play-btn:active { border-style: inset; }
+    .music-info {
+      color: #00ff00;
+      font-size: 15px;
+      flex-shrink: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 160px;
+    }
+    .music-info-inner {
+      display: inline-block;
+      animation: scroll-left 10s linear infinite;
+    }
+    .music-progress-wrap {
+      flex: 1;
+      height: 14px;
+      background: #333;
+      border: 2px inset #555;
+      cursor: pointer;
+      position: relative;
+    }
+    .music-progress-bar {
+      height: 100%;
+      background: repeating-linear-gradient(90deg, #00cc00 0px, #00ff00 4px, #00cc00 8px);
+      width: 0%;
+      transition: width 0.5s linear;
+    }
+    .music-time {
+      color: #00ff00;
+      font-size: 15px;
+      flex-shrink: 0;
+      min-width: 70px;
+      text-align: right;
+    }
+    .under-construction {
+      background: #ffff00;
+      border: 3px solid #ff8800;
+      padding: 5px 10px;
+      text-align: center;
+      font-family: 'VT323', monospace;
+      font-size: 18px;
+      color: #ff0000;
+      animation: blink 0.7s step-end infinite;
+      margin: 6px 10px;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
 
-/* Navigation bar */
-nav {
-  background: #000080;
-  padding: 4px;
-  display: flex;
-  gap: 4px;
-  flex-wrap: wrap;
-  border-bottom: 3px outset #ffffff;
-}
-nav a {
-  background: #c0c0c0;
-  color: #000000;
-  text-decoration: none;
-  font-family: 'VT323', monospace;
-  font-size: 18px;
-  padding: 2px 10px;
-  border: 2px outset #ffffff;
-  cursor: pointer;
-  display: inline-block;
-}
-nav a:hover { border-style: inset; background: #a0a0a0; }
-nav a:active { border-style: inset; }
+    /* Navigation bar */
+    nav {
+      background: #000080;
+      padding: 4px;
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      border-bottom: 3px outset #ffffff;
+    }
+    nav a {
+      background: #c0c0c0;
+      color: #000000;
+      text-decoration: none;
+      font-family: 'VT323', monospace;
+      font-size: 18px;
+      padding: 2px 10px;
+      border: 2px outset #ffffff;
+      cursor: pointer;
+      display: inline-block;
+    }
+    nav a:hover { border-style: inset; background: #a0a0a0; }
+    nav a:active { border-style: inset; }
 
-/* Page content */
-.page { display: none; padding: 12px; }
-.page.active { display: block; }
+    /* Page content */
+    .page { display: none; padding: 12px; }
+    .page.active { display: block; }
 
-/* Windows-style panels */
-.win-panel {
-  background: #ffffff;
-  border: 2px outset #c0c0c0;
-  margin-bottom: 12px;
-}
-.win-titlebar {
-  background: linear-gradient(to right, #000080, #1084d0);
-  color: #ffffff;
-  font-family: 'VT323', monospace;
-  font-size: 17px;
-  padding: 2px 6px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.win-btn {
-  background: #c0c0c0;
-  border: 2px outset #ffffff;
-  color: #000;
-  font-family: 'VT323', monospace;
-  font-size: 13px;
-  width: 18px;
-  height: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin-left: 2px;
-  line-height: 1;
-}
-.win-btn:hover { background: #d0d0d0; }
-.win-body { padding: 10px; font-size: 15px; line-height: 1.6; }
+    /* Windows-style panels */
+    .win-panel {
+      background: #ffffff;
+      border: 2px outset #c0c0c0;
+      margin-bottom: 12px;
+    }
+    .win-titlebar {
+      background: linear-gradient(to right, #000080, #1084d0);
+      color: #ffffff;
+      font-family: 'VT323', monospace;
+      font-size: 17px;
+      padding: 2px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .win-btn {
+      background: #c0c0c0;
+      border: 2px outset #ffffff;
+      color: #000;
+      font-family: 'VT323', monospace;
+      font-size: 13px;
+      width: 18px;
+      height: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-left: 2px;
+      line-height: 1;
+    }
+    .win-btn:hover { background: #d0d0d0; }
+    .win-body { padding: 10px; font-size: 15px; line-height: 1.6; }
 
-/* Tables for layout (classic 90s!) */
-.layout-table { width: 100%; border-collapse: collapse; }
-.layout-table td { vertical-align: top; padding: 4px; }
-.sidebar { width: 160px; }
+    /* Tables for layout (classic 90s!) */
+    .layout-table { width: 100%; border-collapse: collapse; }
+    .layout-table td { vertical-align: top; padding: 4px; }
+    .sidebar { width: 160px; }
 
-/* Guestbook */
-.gb-entry {
-  background: #f0f0f0;
-  border: 2px inset #c0c0c0;
-  padding: 8px;
-  margin-bottom: 8px;
-  font-size: 14px;
-}
-.gb-name { font-weight: bold; color: #000080; font-size: 15px; }
-.gb-date { color: #888; font-size: 12px; float: right; }
-.gb-msg { margin-top: 4px; }
+    /* Guestbook */
+    .gb-entry {
+      background: #f0f0f0;
+      border: 2px inset #c0c0c0;
+      padding: 8px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .gb-name { font-weight: bold; color: #000080; font-size: 15px; }
+    .gb-date { color: #888; font-size: 12px; float: right; }
+    .gb-msg { margin-top: 4px; }
 
-/* Form elements */
-input[type="text"], input[type="email"], textarea {
-  border: 2px inset #808080;
-  background: #ffffff;
-  font-family: 'VT323', monospace;
-  font-size: 16px;
-  padding: 2px 4px;
-  width: 100%;
-  margin-bottom: 6px;
-}
-textarea { height: 70px; resize: none; }
-label { font-family: 'VT323', monospace; font-size: 17px; display: block; margin-bottom: 2px; }
-.win95-btn {
-  background: #c0c0c0;
-  border: 2px outset #ffffff;
-  font-family: 'VT323', monospace;
-  font-size: 18px;
-  padding: 3px 14px;
-  cursor: pointer;
-  color: #000;
-}
-.win95-btn:active { border-style: inset; }
-.win95-btn:hover { background: #d4d4d4; }
+    /* Form elements */
+    input[type="text"], input[type="email"], textarea {
+      border: 2px inset #808080;
+      background: #ffffff;
+      font-family: 'VT323', monospace;
+      font-size: 16px;
+      padding: 2px 4px;
+      width: 100%;
+      margin-bottom: 6px;
+    }
+    textarea { height: 70px; resize: none; }
+    label { font-family: 'VT323', monospace; font-size: 17px; display: block; margin-bottom: 2px; }
+    .win95-btn {
+      background: #c0c0c0;
+      border: 2px outset #ffffff;
+      font-family: 'VT323', monospace;
+      font-size: 18px;
+      padding: 3px 14px;
+      cursor: pointer;
+      color: #000;
+    }
+    .win95-btn:active { border-style: inset; }
+    .win95-btn:hover { background: #d4d4d4; }
 
-/* Links */
-a.retro-link { color: #0000ee; }
-a.retro-link:visited { color: #551a8b; }
+    /* Links */
+    a.retro-link { color: #0000ee; }
+    a.retro-link:visited { color: #551a8b; }
 
-/* Horizontal rule */
-hr { border: 2px inset #808080; margin: 10px 0; }
+    /* Horizontal rule */
+    hr { border: 2px inset #808080; margin: 10px 0; }
 
-/* Sidebar stuff */
-.sidebar-box {
-  background: #ffffff;
-  border: 2px outset #c0c0c0;
-  margin-bottom: 10px;
-  font-size: 13px;
-}
-.sidebar-title {
-  background: linear-gradient(to right, #000080, #1084d0);
-  color: #fff;
-  font-family: 'VT323', monospace;
-  font-size: 16px;
-  padding: 2px 6px;
-}
-.sidebar-body { padding: 6px; }
-.sidebar-body ul { padding-left: 14px; }
-.sidebar-body li { margin-bottom: 4px; font-family: 'VT323', monospace; font-size: 16px; }
-.sidebar-body a { color: #0000ee; font-size: 14px; }
+    /* Sidebar stuff */
+    .sidebar-box {
+      background: #ffffff;
+      border: 2px outset #c0c0c0;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    .sidebar-title {
+      background: linear-gradient(to right, #000080, #1084d0);
+      color: #fff;
+      font-family: 'VT323', monospace;
+      font-size: 16px;
+      padding: 2px 6px;
+    }
+    .sidebar-body { padding: 6px; }
+    .sidebar-body ul { padding-left: 14px; }
+    .sidebar-body li { margin-bottom: 4px; font-family: 'VT323', monospace; font-size: 16px; }
+    .sidebar-body a { color: #0000ee; font-size: 14px; }
 
-/* Spinning star / animated elements */
-.star { display: inline-block; animation: spin 2s linear infinite; font-size: 18px; }
-@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    /* Spinning star / animated elements */
+    .star { display: inline-block; animation: spin 2s linear infinite; font-size: 18px; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-/* Email hover popup */
-.email-popup { display: none; }
-.email-link:hover .email-popup {
-  display: inline;
-  background: #ffffe0;
-  border: 1px solid #000;
-  padding: 2px 5px;
-  font-size: 12px;
-  position: absolute;
-}
+    /* Email hover popup */
+    .email-popup { display: none; }
+    .email-link:hover .email-popup {
+      display: inline;
+      background: #ffffe0;
+      border: 1px solid #000;
+      padding: 2px 5px;
+      font-size: 12px;
+      position: absolute;
+    }
 
-/* Weather widget */
-.weather-box {
-  background: linear-gradient(180deg, #87ceeb, #e0f0ff);
-  border: 2px inset #808080;
-  padding: 8px;
-  text-align: center;
-  font-family: 'VT323', monospace;
-}
-.weather-icon { font-size: 40px; }
-.weather-temp { font-size: 28px; color: #000080; font-weight: bold; }
-.weather-city { font-size: 20px; color: #444; }
+    /* Weather widget */
+    .weather-box {
+      background: linear-gradient(180deg, #87ceeb, #e0f0ff);
+      border: 2px inset #808080;
+      padding: 8px;
+      text-align: center;
+      font-family: 'VT323', monospace;
+    }
+    .weather-icon { font-size: 40px; }
+    .weather-temp { font-size: 28px; color: #000080; font-weight: bold; }
+    .weather-city { font-size: 20px; color: #444; }
 
-/* Poll */
-.poll-option { margin-bottom: 6px; font-family: 'VT323', monospace; font-size: 17px; }
-.poll-bar { height: 14px; background: #000080; display: inline-block; border: 1px solid #000; }
-.poll-result { margin-bottom: 4px; font-family: 'VT323', monospace; font-size: 15px; }
+    /* Poll */
+    .poll-option { margin-bottom: 6px; font-family: 'VT323', monospace; font-size: 17px; }
+    .poll-bar { height: 14px; background: #000080; display: inline-block; border: 1px solid #000; }
+    .poll-result { margin-bottom: 4px; font-family: 'VT323', monospace; font-size: 15px; }
 
-/* Footer */
-footer {
-  background: #000080;
-  color: #c0c0c0;
-  text-align: center;
-  padding: 10px;
-  font-family: 'VT323', monospace;
-  font-size: 16px;
-  border-top: 4px outset #ffffff;
-}
-footer .badge {
-  display: inline-block;
-  background: #000;
-  color: #00ff00;
-  font-size: 13px;
-  padding: 2px 6px;
-  border: 2px outset #00ff00;
-  margin: 2px;
-  font-family: 'VT323', monospace;
-}
+    /* Footer */
+    footer {
+      background: #000080;
+      color: #c0c0c0;
+      text-align: center;
+      padding: 10px;
+      font-family: 'VT323', monospace;
+      font-size: 16px;
+      border-top: 4px outset #ffffff;
+    }
+    footer .badge {
+      display: inline-block;
+      background: #000;
+      color: #00ff00;
+      font-size: 13px;
+      padding: 2px 6px;
+      border: 2px outset #00ff00;
+      margin: 2px;
+      font-family: 'VT323', monospace;
+    }
 
-/* Alert popup */
-.popup-overlay {
-  display: none;
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: 999;
-  align-items: center;
-  justify-content: center;
-}
-.popup-overlay.show { display: flex; }
-.popup-window {
-  background: #c0c0c0;
-  border: 3px outset #ffffff;
-  min-width: 280px;
-  max-width: 360px;
-  box-shadow: 4px 4px 0 #000;
-}
-.popup-titlebar {
-  background: linear-gradient(to right, #000080, #1084d0);
-  color: #fff;
-  font-family: 'VT323', monospace;
-  font-size: 18px;
-  padding: 3px 8px;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.popup-body { padding: 14px; text-align: center; font-family: 'VT323', monospace; font-size: 18px; }
-.popup-body p { margin-bottom: 14px; }
+    /* Alert popup */
+    .popup-overlay {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+    .popup-overlay.show { display: flex; }
+    .popup-window {
+      background: #c0c0c0;
+      border: 3px outset #ffffff;
+      min-width: 280px;
+      max-width: 360px;
+      box-shadow: 4px 4px 0 #000;
+    }
+    .popup-titlebar {
+      background: linear-gradient(to right, #000080, #1084d0);
+      color: #fff;
+      font-family: 'VT323', monospace;
+      font-size: 18px;
+      padding: 3px 8px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .popup-body { padding: 14px; text-align: center; font-family: 'VT323', monospace; font-size: 18px; }
+    .popup-body p { margin-bottom: 14px; }
 
-/* Cursor trail */
-.cursor-dot {
-  position: fixed;
-  pointer-events: none;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-}
+    /* Cursor trail */
+    .cursor-dot {
+      position: fixed;
+      pointer-events: none;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
 
-/* Loading bar (fake) */
-.loading-bar {
-  height: 16px;
-  background: #fff;
-  border: 2px inset #808080;
-  margin: 6px 0;
-  overflow: hidden;
-}
-.loading-fill {
-  height: 100%;
-  background: repeating-linear-gradient(
-    90deg, #000080 0px, #000080 10px, #c0c0c0 10px, #c0c0c0 16px
-  );
-  animation: load 3s ease-in-out infinite;
-}
-@keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
+    /* Loading bar (fake) */
+    .loading-bar {
+      height: 16px;
+      background: #fff;
+      border: 2px inset #808080;
+      margin: 6px 0;
+      overflow: hidden;
+    }
+    .loading-fill {
+      height: 100%;
+      background: repeating-linear-gradient(
+        90deg, #000080 0px, #000080 10px, #c0c0c0 10px, #c0c0c0 16px
+      );
+      animation: load 3s ease-in-out infinite;
+    }
+    @keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
 
-/* Text styles */
-.rainbow-text span { animation: rainbow 1.5s linear infinite; }
-.rainbow-text span:nth-child(2) { animation-delay: 0.2s; }
-.rainbow-text span:nth-child(3) { animation-delay: 0.4s; }
-.rainbow-text span:nth-child(4) { animation-delay: 0.6s; }
-.rainbow-text span:nth-child(5) { animation-delay: 0.8s; }
-.rainbow-text span:nth-child(6) { animation-delay: 1.0s; }
+    /* Text styles */
+    .rainbow-text span { animation: rainbow 1.5s linear infinite; }
+    .rainbow-text span:nth-child(2) { animation-delay: 0.2s; }
+    .rainbow-text span:nth-child(3) { animation-delay: 0.4s; }
+    .rainbow-text span:nth-child(4) { animation-delay: 0.6s; }
+    .rainbow-text span:nth-child(5) { animation-delay: 0.8s; }
+    .rainbow-text span:nth-child(6) { animation-delay: 1.0s; }
 
-.new-badge {
-  background: #ff0000;
-  color: #ffff00;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 9px;
-  padding: 2px 4px;
-  border: 1px solid #800000;
-  animation: blink 0.8s step-end infinite;
-  margin-left: 4px;
-}
+    .new-badge {
+      background: #ff0000;
+      color: #ffff00;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 9px;
+      padding: 2px 4px;
+      border: 1px solid #800000;
+      animation: blink 0.8s step-end infinite;
+      margin-left: 4px;
+    }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 16px; }
-::-webkit-scrollbar-track { background: #c0c0c0; }
-::-webkit-scrollbar-thumb { background: #808080; border: 2px outset #fff; }
-```
-
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 16px; }
+    ::-webkit-scrollbar-track { background: #c0c0c0; }
+    ::-webkit-scrollbar-thumb { background: #808080; border: 2px outset #fff; }
   </style>
 </head>
 <body>
 
 <!-- Cursor sparkle trail -->
-
 <div id="cursor-trail"></div>
 
 <!-- Background music -->
-
 <audio id="bgMusic" loop preload="auto">
   <source src="https://raw.githubusercontent.com/whippmaester/coolzone/refs/heads/main/Music/medieval_8bit_theme.wav" type="audio/wav">
 </audio>
 
 <!-- Alert popup -->
-
 <div class="popup-overlay show" id="welcomePopup">
   <div class="popup-window">
     <div class="popup-titlebar">
@@ -447,13 +440,22 @@ footer .badge {
   function closePopup() {
     document.getElementById('welcomePopup').classList.remove('show');
   }
-  document.getElementById('popupOK').addEventListener('click', closePopup);
+  document.getElementById('popupOK').addEventListener('click', function() {
+    closePopup();
+    var a = document.getElementById('bgMusic');
+    if (a) {
+      a.volume = 0.5;
+      a.play().then(function() {
+        var btn = document.getElementById('playPauseBtn');
+        if (btn) btn.textContent = '⏸';
+      }).catch(function(e) { console.log('Audio failed:', e); });
+    }
+  });
   document.getElementById('popupCancel').addEventListener('click', closePopup);
   document.getElementById('popupCloseX').addEventListener('click', closePopup);
 </script>
 
 <!-- Top marquee -->
-
 <div class="top-bar">
   <span class="marquee-inner">
     ★ WELCOME TO COOLZONE™ ★ &nbsp;&nbsp;&nbsp; 🔥 HOT NEW CONTENT ADDED DAILY 🔥 &nbsp;&nbsp;&nbsp; ★ SIGN OUR GUESTBOOK! ★ &nbsp;&nbsp;&nbsp; 💾 DOWNLOAD WINAMP SKINS 💾 &nbsp;&nbsp;&nbsp; ⚡ WEB RINGS: JOIN OURS! ⚡ &nbsp;&nbsp;&nbsp; 🌐 AOL KEYWORD: COOLZONE &nbsp;&nbsp;&nbsp; ★ Y2K COMPLIANT ★ &nbsp;&nbsp;&nbsp;
@@ -463,7 +465,6 @@ footer .badge {
 <div class="wrapper">
 
   <!-- Header -->
-
   <div class="site-header">
     <div class="site-title">★ CoolZone™ ★</div>
     <div class="site-subtitle">
@@ -475,13 +476,11 @@ footer .badge {
   </div>
 
   <!-- Under construction -->
-
   <div class="under-construction">
     🚧 SITE UNDER CONSTRUCTION — Check back soon for MORE AWESOME CONTENT!! 🚧
   </div>
 
   <!-- Music Player -->
-
   <div class="music-player">
     <button class="music-play-btn" id="playPauseBtn" onclick="toggleMusic()">▶</button>
     <div class="music-info">
@@ -494,7 +493,6 @@ footer .badge {
   </div>
 
   <!-- Navigation -->
-
   <nav>
     <a onclick="showPage('home')">🏠 Home</a>
     <a onclick="showPage('about')">👤 About Me</a>
@@ -504,112 +502,107 @@ footer .badge {
   </nav>
 
   <!-- HOME PAGE -->
-
   <div class="page active" id="page-home">
     <table class="layout-table">
       <tr>
         <!-- Main content -->
         <td>
 
-```
-      <div class="win-panel">
-        <div class="win-titlebar">
-          <span>📰 Latest News</span>
-          <span>
-            <span class="win-btn">_</span>
-            <span class="win-btn">□</span>
-            <span class="win-btn">✕</span>
-          </span>
-        </div>
-        <div class="win-body">
-          <p><strong>March 1999</strong> — <span class="new-badge">NEW</span></p>
-          <p>Welcome to the ALL NEW CoolZone™! We just upgraded from 28.8k to a blazing fast <strong>56k modem</strong>!! Pages load in seconds now!!</p>
-          <hr>
-          <p>🎵 Check out my <strong>MIDI collection</strong> — I added 14 new songs from the hottest bands!</p>
-          <hr>
-          <p>💻 Just installed Windows 98 on my Pentium II 300MHz machine. SO FAST!! Playing Starcraft online now. Hit me up on ICQ: <strong>3847291</strong></p>
-          <hr>
-          <p>🔔 My mom finally got her own email address on AOL!! Email her at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1f7c7070737270722e26292d5f7e7073317c7072">[email&#160;protected]</a></strong></p>
-          <div class="loading-bar"><div class="loading-fill"></div></div>
-          <small>Loading more awesome content...</small>
-        </div>
-      </div>
-
-      <div class="win-panel">
-        <div class="win-titlebar">
-          <span>🌅 Photo of the Week</span>
-          <span>
-            <span class="win-btn">_</span>
-            <span class="win-btn">□</span>
-          </span>
-        </div>
-        <div class="win-body" style="text-align:center;">
-          <!-- Fake pixel art photo placeholder -->
-          <div style="display:inline-block; border: 3px inset #808080; padding: 0; background: linear-gradient(135deg, #87CEEB 0%, #87CEEB 60%, #228B22 60%, #228B22 80%, #8B4513 80%, #8B4513 100%); width: 200px; height: 150px; position: relative; overflow: hidden;">
-            <div style="position:absolute; bottom:30px; left:60px; width:80px; height:100px; background: linear-gradient(180deg,#ffcc88 0 20px, #cc0000 20px 80px, #0000cc 80px 100%); border:1px solid #333;"></div>
-            <div style="position:absolute; bottom:125px; left:90px; width:20px; height:20px; background:#ffcc88; border-radius:50%; border:1px solid #333;"></div>
-            <div style="position:absolute; bottom:0; left:0; right:0; height:30px; background:#8B4513;"></div>
-            <div style="position:absolute; top:5px; right:10px; font-size:24px;">☀️</div>
+          <div class="win-panel">
+            <div class="win-titlebar">
+              <span>📰 Latest News</span>
+              <span>
+                <span class="win-btn">_</span>
+                <span class="win-btn">□</span>
+                <span class="win-btn">✕</span>
+              </span>
+            </div>
+            <div class="win-body">
+              <p><strong>March 1999</strong> — <span class="new-badge">NEW</span></p>
+              <p>Welcome to the ALL NEW CoolZone™! We just upgraded from 28.8k to a blazing fast <strong>56k modem</strong>!! Pages load in seconds now!!</p>
+              <hr>
+              <p>🎵 Check out my <strong>MIDI collection</strong> — I added 14 new songs from the hottest bands!</p>
+              <hr>
+              <p>💻 Just installed Windows 98 on my Pentium II 300MHz machine. SO FAST!! Playing Starcraft online now. Hit me up on ICQ: <strong>3847291</strong></p>
+              <hr>
+              <p>🔔 My mom finally got her own email address on AOL!! Email her at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1f7c7070737270722e26292d5f7e7073317c7072">[email&#160;protected]</a></strong></p>
+              <div class="loading-bar"><div class="loading-fill"></div></div>
+              <small>Loading more awesome content...</small>
+            </div>
           </div>
-          <br><small style="font-family:'VT323',monospace; font-size:15px;">Me at the Grand Canyon trip! Summer '98 🏖️</small>
-        </div>
-      </div>
 
-    </td>
-
-    <!-- Sidebar -->
-    <td class="sidebar">
-
-      <div class="sidebar-box">
-        <div class="sidebar-title">🌤️ Weather</div>
-        <div class="sidebar-body">
-          <div class="weather-box">
-            <div class="weather-icon">😎</div>
-            <div class="weather-temp" id="weatherTemp">75°F</div>
-            <div class="weather-city">Somewhere, Planet Earth</div>
-            <small style="font-size:12px;">Sunny & Perfect!!</small>
+          <div class="win-panel">
+            <div class="win-titlebar">
+              <span>🌅 Photo of the Week</span>
+              <span>
+                <span class="win-btn">_</span>
+                <span class="win-btn">□</span>
+              </span>
+            </div>
+            <div class="win-body" style="text-align:center;">
+              <!-- Fake pixel art photo placeholder -->
+              <div style="display:inline-block; border: 3px inset #808080; padding: 0; background: linear-gradient(135deg, #87CEEB 0%, #87CEEB 60%, #228B22 60%, #228B22 80%, #8B4513 80%, #8B4513 100%); width: 200px; height: 150px; position: relative; overflow: hidden;">
+                <div style="position:absolute; bottom:30px; left:60px; width:80px; height:100px; background: linear-gradient(180deg,#ffcc88 0 20px, #cc0000 20px 80px, #0000cc 80px 100%); border:1px solid #333;"></div>
+                <div style="position:absolute; bottom:125px; left:90px; width:20px; height:20px; background:#ffcc88; border-radius:50%; border:1px solid #333;"></div>
+                <div style="position:absolute; bottom:0; left:0; right:0; height:30px; background:#8B4513;"></div>
+                <div style="position:absolute; top:5px; right:10px; font-size:24px;">☀️</div>
+              </div>
+              <br><small style="font-family:'VT323',monospace; font-size:15px;">Me at the Grand Canyon trip! Summer '98 🏖️</small>
+            </div>
           </div>
-          <button class="win95-btn" style="width:100%; margin-top:4px; font-size:14px;" onclick="changeWeather()">Refresh</button>
-        </div>
-      </div>
 
-      <div class="sidebar-box">
-        <div class="sidebar-title">🎯 Random Quote</div>
-        <div class="sidebar-body">
-          <div id="quoteBox" style="font-family:'VT323',monospace; font-size:15px; font-style:italic; border:1px inset #808080; padding:4px; background:#fffff0;">
-            "The Internet is not just one thing, it's a collection of things."
-            <br><small>— Al Gore, probably</small>
+        </td>
+
+        <!-- Sidebar -->
+        <td class="sidebar">
+
+          <div class="sidebar-box">
+            <div class="sidebar-title">🌤️ Weather</div>
+            <div class="sidebar-body">
+              <div class="weather-box">
+                <div class="weather-icon">😎</div>
+                <div class="weather-temp" id="weatherTemp">75°F</div>
+                <div class="weather-city">Somewhere, Planet Earth</div>
+                <small style="font-size:12px;">Sunny & Perfect!!</small>
+              </div>
+              <button class="win95-btn" style="width:100%; margin-top:4px; font-size:14px;" onclick="changeWeather()">Refresh</button>
+            </div>
           </div>
-          <button class="win95-btn" style="width:100%; margin-top:4px; font-size:14px;" onclick="newQuote()">New Quote!</button>
-        </div>
-      </div>
 
-      <div class="sidebar-box">
-        <div class="sidebar-title">💻 My Setup</div>
-        <div class="sidebar-body">
-          <ul>
-            <li>Pentium II 300MHz</li>
-            <li>64 MB RAM</li>
-            <li>56k Modem 🚀</li>
-            <li>8GB hard drive</li>
-            <li>Win98 SE</li>
-            <li>Netscape 4.7</li>
-            <li>ICQ & AIM</li>
-          </ul>
-        </div>
-      </div>
+          <div class="sidebar-box">
+            <div class="sidebar-title">🎯 Random Quote</div>
+            <div class="sidebar-body">
+              <div id="quoteBox" style="font-family:'VT323',monospace; font-size:15px; font-style:italic; border:1px inset #808080; padding:4px; background:#fffff0;">
+                "The Internet is not just one thing, it's a collection of things."
+                <br><small>— Al Gore, probably</small>
+              </div>
+              <button class="win95-btn" style="width:100%; margin-top:4px; font-size:14px;" onclick="newQuote()">New Quote!</button>
+            </div>
+          </div>
+
+          <div class="sidebar-box">
+            <div class="sidebar-title">💻 My Setup</div>
+            <div class="sidebar-body">
+              <ul>
+                <li>Pentium II 300MHz</li>
+                <li>64 MB RAM</li>
+                <li>56k Modem 🚀</li>
+                <li>8GB hard drive</li>
+                <li>Win98 SE</li>
+                <li>Netscape 4.7</li>
+                <li>ICQ & AIM</li>
+              </ul>
+            </div>
+          </div>
 
 
 
-    </td>
-  </tr>
-</table>
-```
-
+        </td>
+      </tr>
+    </table>
   </div>
 
   <!-- ABOUT PAGE -->
-
   <div class="page" id="page-about">
     <div class="win-panel">
       <div class="win-titlebar">
@@ -662,7 +655,6 @@ footer .badge {
   </div>
 
   <!-- GUESTBOOK PAGE -->
-
   <div class="page" id="page-guestbook">
     <div class="win-panel">
       <div class="win-titlebar">
@@ -674,53 +666,49 @@ footer .badge {
           You are the <strong id="gbCount">5</strong>th person to sign my guestbook!! Leave a message!! 😊
         </p>
 
-```
-    <!-- Sign form -->
-    <div style="background:#f0f8ff; border: 2px inset #808080; padding: 10px; margin-bottom: 12px;">
-      <p style="font-family:'VT323',monospace; font-size:18px; margin-bottom:6px; color:#000080;"><strong>✏️ Sign My Guestbook!</strong></p>
-      <label>Your Name:</label>
-      <input type="text" id="gbName" placeholder="e.g. SurferDude_2000">
-      <label>Your Message:</label>
-      <textarea id="gbMsg" placeholder="Leave a cool message!! A/S/L??"></textarea>
-      <button class="win95-btn" onclick="signGuestbook()">Sign It!! →</button>
-    </div>
+        <!-- Sign form -->
+        <div style="background:#f0f8ff; border: 2px inset #808080; padding: 10px; margin-bottom: 12px;">
+          <p style="font-family:'VT323',monospace; font-size:18px; margin-bottom:6px; color:#000080;"><strong>✏️ Sign My Guestbook!</strong></p>
+          <label>Your Name:</label>
+          <input type="text" id="gbName" placeholder="e.g. SurferDude_2000">
+          <label>Your Message:</label>
+          <textarea id="gbMsg" placeholder="Leave a cool message!! A/S/L??"></textarea>
+          <button class="win95-btn" onclick="signGuestbook()">Sign It!! →</button>
+        </div>
 
-    <!-- Existing entries -->
-    <div id="guestbookEntries">
-      <div class="gb-entry">
-        <span class="gb-name">🤙 sk8r_boi_tony</span>
-        <span class="gb-date">Feb 28, 1999</span>
-        <div class="gb-msg">DUDE ur site is so awesome!! best page on geocities!!! add me on AIM — toNy_HAWK99!! peace ✌️</div>
-      </div>
-      <div class="gb-entry">
-        <span class="gb-name">💜 PrincessStarfire</span>
-        <span class="gb-date">Feb 14, 1999</span>
-        <div class="gb-msg">happy valentines day!! ur page is sooooo cool!! i love the background!! brb gonna get some pizza rolls 🍕</div>
-      </div>
-      <div class="gb-entry">
-        <span class="gb-name">🔥 MEGA_GAMER_X</span>
-        <span class="gb-date">Jan 31, 1999</span>
-        <div class="gb-msg">1337 PAGE BRO!! do u play counterstrike?? lets clan up!! add me on battle.net: MEGAgamer#1337</div>
-      </div>
-      <div class="gb-entry">
-        <span class="gb-name">🌸 Katie_Sunshine</span>
-        <span class="gb-date">Jan 15, 1999</span>
-        <div class="gb-msg">hi mike!! it's katie from school!! your website is SO COOL!! talk to u on aim later!! bbl!! ~*~*~*~</div>
-      </div>
-      <div class="gb-entry">
-        <span class="gb-name">🎸 XANDER_ROCKZ</span>
-        <span class="gb-date">Dec 25, 1998</span>
-        <div class="gb-msg">merry xmas dude!! hope santa brought u a new graphics card haha!! blink 182 concert in april u going??</div>
+        <!-- Existing entries -->
+        <div id="guestbookEntries">
+          <div class="gb-entry">
+            <span class="gb-name">🤙 sk8r_boi_tony</span>
+            <span class="gb-date">Feb 28, 1999</span>
+            <div class="gb-msg">DUDE ur site is so awesome!! best page on geocities!!! add me on AIM — toNy_HAWK99!! peace ✌️</div>
+          </div>
+          <div class="gb-entry">
+            <span class="gb-name">💜 PrincessStarfire</span>
+            <span class="gb-date">Feb 14, 1999</span>
+            <div class="gb-msg">happy valentines day!! ur page is sooooo cool!! i love the background!! brb gonna get some pizza rolls 🍕</div>
+          </div>
+          <div class="gb-entry">
+            <span class="gb-name">🔥 MEGA_GAMER_X</span>
+            <span class="gb-date">Jan 31, 1999</span>
+            <div class="gb-msg">1337 PAGE BRO!! do u play counterstrike?? lets clan up!! add me on battle.net: MEGAgamer#1337</div>
+          </div>
+          <div class="gb-entry">
+            <span class="gb-name">🌸 Katie_Sunshine</span>
+            <span class="gb-date">Jan 15, 1999</span>
+            <div class="gb-msg">hi mike!! it's katie from school!! your website is SO COOL!! talk to u on aim later!! bbl!! ~*~*~*~</div>
+          </div>
+          <div class="gb-entry">
+            <span class="gb-name">🎸 XANDER_ROCKZ</span>
+            <span class="gb-date">Dec 25, 1998</span>
+            <div class="gb-msg">merry xmas dude!! hope santa brought u a new graphics card haha!! blink 182 concert in april u going??</div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-```
-
   </div>
 
   <!-- LINKS PAGE -->
-
   <div class="page" id="page-links">
     <div class="win-panel">
       <div class="win-titlebar">
@@ -732,78 +720,74 @@ footer .badge {
           Here are the COOLEST sites on the whole internet!! Bookmark them!!
         </p>
 
-```
-    <table style="width:100%; border-collapse:collapse; font-family:'VT323',monospace; font-size:16px;">
-      <tr style="background:#000080; color:#fff;">
-        <td style="padding:4px 8px;">Category</td>
-        <td style="padding:4px 8px;">Site</td>
-        <td style="padding:4px 8px;">Why It's Cool</td>
-      </tr>
-      <tr style="background:#f0f0f0;">
-        <td style="padding:3px 8px;">🔍 Search</td>
-        <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('AltaVista')" class="retro-link">AltaVista</a></td>
-        <td style="padding:3px 8px;">Best search engine!!</td>
-      </tr>
-      <tr>
-        <td style="padding:3px 8px;">🔍 Search</td>
-        <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Ask Jeeves')" class="retro-link">Ask Jeeves</a></td>
-        <td style="padding:3px 8px;">Ask it anything in plain English!!</td>
-      </tr>
-      <tr style="background:#f0f0f0;">
-        <td style="padding:3px 8px;">💾 Downloads</td>
-        <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Download.com')" class="retro-link">Download.com</a></td>
-        <td style="padding:3px 8px;">Free software!! Get WinZip!!</td>
-      </tr>
-      <tr>
-        <td style="padding:3px 8px;">🎮 Games</td>
-        <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Battle.net')" class="retro-link">Battle.net</a></td>
-        <td style="padding:3px 8px;">Starcraft online!! I'm rank 47!!</td>
-      </tr>
-      <tr style="background:#f0f0f0;">
-        <td style="padding:3px 8px;">🎮 Games</td>
-        <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Newgrounds')" class="retro-link">Newgrounds</a></td>
-        <td style="padding:3px 8px;">Flash games & animation!! So funny!!</td>
-      </tr>
-      <tr>
-        <td style="padding:3px 8px;">🏠 Hosting</td>
-        <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('GeoCities')" class="retro-link">GeoCities</a></td>
-        <td style="padding:3px 8px;">Free homepage hosting!! Use it!!</td>
-      </tr>
-      <tr style="background:#f0f0f0;">
-        <td style="padding:3px 8px;">💬 Chat</td>
-        <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('IRC Chat')" class="retro-link">IRC Chat</a></td>
-        <td style="padding:3px 8px;">#starcraft channel is 🔥</td>
-      </tr>
-      <tr>
-        <td style="padding:3px 8px;">📧 Email</td>
-        <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Hotmail')" class="retro-link">Hotmail</a></td>
-        <td style="padding:3px 8px;">FREE email! 2 whole megabytes!!</td>
-      </tr>
-      <tr style="background:#f0f0f0;">
-        <td style="padding:3px 8px;">🎵 Music</td>
-        <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Napster')" class="retro-link">Napster</a></td>
-        <td style="padding:3px 8px;">FREE music downloads!! Amazing!!</td>
-      </tr>
-      <tr>
-        <td style="padding:3px 8px;">📰 News</td>
-        <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Slashdot')" class="retro-link">Slashdot</a></td>
-        <td style="padding:3px 8px;">News for nerds. Stuff that matters.</td>
-      </tr>
-    </table>
+        <table style="width:100%; border-collapse:collapse; font-family:'VT323',monospace; font-size:16px;">
+          <tr style="background:#000080; color:#fff;">
+            <td style="padding:4px 8px;">Category</td>
+            <td style="padding:4px 8px;">Site</td>
+            <td style="padding:4px 8px;">Why It's Cool</td>
+          </tr>
+          <tr style="background:#f0f0f0;">
+            <td style="padding:3px 8px;">🔍 Search</td>
+            <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('AltaVista')" class="retro-link">AltaVista</a></td>
+            <td style="padding:3px 8px;">Best search engine!!</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;">🔍 Search</td>
+            <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Ask Jeeves')" class="retro-link">Ask Jeeves</a></td>
+            <td style="padding:3px 8px;">Ask it anything in plain English!!</td>
+          </tr>
+          <tr style="background:#f0f0f0;">
+            <td style="padding:3px 8px;">💾 Downloads</td>
+            <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Download.com')" class="retro-link">Download.com</a></td>
+            <td style="padding:3px 8px;">Free software!! Get WinZip!!</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;">🎮 Games</td>
+            <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Battle.net')" class="retro-link">Battle.net</a></td>
+            <td style="padding:3px 8px;">Starcraft online!! I'm rank 47!!</td>
+          </tr>
+          <tr style="background:#f0f0f0;">
+            <td style="padding:3px 8px;">🎮 Games</td>
+            <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Newgrounds')" class="retro-link">Newgrounds</a></td>
+            <td style="padding:3px 8px;">Flash games & animation!! So funny!!</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;">🏠 Hosting</td>
+            <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('GeoCities')" class="retro-link">GeoCities</a></td>
+            <td style="padding:3px 8px;">Free homepage hosting!! Use it!!</td>
+          </tr>
+          <tr style="background:#f0f0f0;">
+            <td style="padding:3px 8px;">💬 Chat</td>
+            <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('IRC Chat')" class="retro-link">IRC Chat</a></td>
+            <td style="padding:3px 8px;">#starcraft channel is 🔥</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;">📧 Email</td>
+            <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Hotmail')" class="retro-link">Hotmail</a></td>
+            <td style="padding:3px 8px;">FREE email! 2 whole megabytes!!</td>
+          </tr>
+          <tr style="background:#f0f0f0;">
+            <td style="padding:3px 8px;">🎵 Music</td>
+            <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Napster')" class="retro-link">Napster</a></td>
+            <td style="padding:3px 8px;">FREE music downloads!! Amazing!!</td>
+          </tr>
+          <tr>
+            <td style="padding:3px 8px;">📰 News</td>
+            <td style="padding:3px 8px;"><a href="#" onclick="fakeClick('Slashdot')" class="retro-link">Slashdot</a></td>
+            <td style="padding:3px 8px;">News for nerds. Stuff that matters.</td>
+          </tr>
+        </table>
 
-    <hr>
-    <p style="font-family:'VT323',monospace; font-size:16px;">
-      💌 Want me to add YOUR link? Email me at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="21424e4e4d45544544181861494e554c40484d0f424e4c">[email&#160;protected]</a></strong>!!<br>
-      I'll add any site as long as it's COOL enough!! 😎
-    </p>
-  </div>
-</div>
-```
-
+        <hr>
+        <p style="font-family:'VT323',monospace; font-size:16px;">
+          💌 Want me to add YOUR link? Email me at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="21424e4e4d45544544181861494e554c40484d0f424e4c">[email&#160;protected]</a></strong>!!<br>
+          I'll add any site as long as it's COOL enough!! 😎
+        </p>
+      </div>
+    </div>
   </div>
 
   <!-- POLL PAGE -->
-
   <div class="page" id="page-poll">
     <div class="win-panel">
       <div class="win-titlebar">
@@ -815,46 +799,42 @@ footer .badge {
           <strong>Question: What is the BEST game of 1998?</strong>
         </p>
 
-```
-    <div id="pollVote">
-      <div class="poll-option"><input type="radio" name="poll" value="starcraft"> StarCraft 👾</div>
-      <div class="poll-option"><input type="radio" name="poll" value="zelda"> Zelda: Ocarina of Time 🗡️</div>
-      <div class="poll-option"><input type="radio" name="poll" value="halflife"> Half-Life 🔫</div>
-      <div class="poll-option"><input type="radio" name="poll" value="baldurs"> Baldur's Gate ⚔️</div>
-      <div class="poll-option"><input type="radio" name="poll" value="rainbow"> Rainbow Six 🎯</div>
-      <br>
-      <button class="win95-btn" onclick="votePoll()">Vote!! →</button>
+        <div id="pollVote">
+          <div class="poll-option"><input type="radio" name="poll" value="starcraft"> StarCraft 👾</div>
+          <div class="poll-option"><input type="radio" name="poll" value="zelda"> Zelda: Ocarina of Time 🗡️</div>
+          <div class="poll-option"><input type="radio" name="poll" value="halflife"> Half-Life 🔫</div>
+          <div class="poll-option"><input type="radio" name="poll" value="baldurs"> Baldur's Gate ⚔️</div>
+          <div class="poll-option"><input type="radio" name="poll" value="rainbow"> Rainbow Six 🎯</div>
+          <br>
+          <button class="win95-btn" onclick="votePoll()">Vote!! →</button>
+        </div>
+
+        <div id="pollResults" style="display:none;">
+          <p style="font-family:'VT323',monospace; font-size:17px; margin-bottom:8px;">📊 Current Results (247 votes):</p>
+          <div class="poll-result">StarCraft 👾 <div class="poll-bar" style="width:140px;"></div> 43%</div>
+          <div class="poll-result">Zelda: OoT 🗡️ <div class="poll-bar" style="width:110px;"></div> 34%</div>
+          <div class="poll-result">Half-Life 🔫 <div class="poll-bar" style="width:56px;"></div> 17%</div>
+          <div class="poll-result">Baldur's Gate ⚔️ <div class="poll-bar" style="width:16px;"></div> 5%</div>
+          <div class="poll-result">Rainbow Six 🎯 <div class="poll-bar" style="width:3px;"></div> 1%</div>
+          <br>
+          <p style="font-family:'VT323',monospace; font-size:15px; color:#888;">Thanks for voting!! Results update every hour!!</p>
+        </div>
+      </div>
     </div>
 
-    <div id="pollResults" style="display:none;">
-      <p style="font-family:'VT323',monospace; font-size:17px; margin-bottom:8px;">📊 Current Results (247 votes):</p>
-      <div class="poll-result">StarCraft 👾 <div class="poll-bar" style="width:140px;"></div> 43%</div>
-      <div class="poll-result">Zelda: OoT 🗡️ <div class="poll-bar" style="width:110px;"></div> 34%</div>
-      <div class="poll-result">Half-Life 🔫 <div class="poll-bar" style="width:56px;"></div> 17%</div>
-      <div class="poll-result">Baldur's Gate ⚔️ <div class="poll-bar" style="width:16px;"></div> 5%</div>
-      <div class="poll-result">Rainbow Six 🎯 <div class="poll-bar" style="width:3px;"></div> 1%</div>
-      <br>
-      <p style="font-family:'VT323',monospace; font-size:15px; color:#888;">Thanks for voting!! Results update every hour!!</p>
+    <!-- Old poll archive -->
+    <div class="win-panel">
+      <div class="win-titlebar"><span>📁 Past Polls</span></div>
+      <div class="win-body" style="font-family:'VT323',monospace; font-size:15px;">
+        <p>• <em>Best OS?</em> — Winner: Windows 98 (52%)</p>
+        <p>• <em>Best browser?</em> — Winner: Netscape (61%)</p>
+        <p>• <em>Did Y2K scare you?</em> — YES: 78% / NO: 22%</p>
+        <p>• <em>Best movie 1999?</em> — Winner: The Matrix (88%!)</p>
+      </div>
     </div>
-  </div>
-</div>
-
-<!-- Old poll archive -->
-<div class="win-panel">
-  <div class="win-titlebar"><span>📁 Past Polls</span></div>
-  <div class="win-body" style="font-family:'VT323',monospace; font-size:15px;">
-    <p>• <em>Best OS?</em> — Winner: Windows 98 (52%)</p>
-    <p>• <em>Best browser?</em> — Winner: Netscape (61%)</p>
-    <p>• <em>Did Y2K scare you?</em> — YES: 78% / NO: 22%</p>
-    <p>• <em>Best movie 1999?</em> — Winner: The Matrix (88%!)</p>
-  </div>
-</div>
-```
-
   </div>
 
   <!-- Footer -->
-
   <footer>
     <div>
       <span class="badge">Best Viewed in 800x600</span>
@@ -866,18 +846,14 @@ footer .badge {
       © 1999 CoolZone™ by Mike (CoolDude_99) — All rights reserved maybe idk
     </div>
 
-```
-<div style="margin-top:8px; font-size:20px;">
-  ⭐ 🌀 ✨ 💫 ⭐ 🌀 ✨ 💫 ⭐
-</div>
-```
-
+    <div style="margin-top:8px; font-size:20px;">
+      ⭐ 🌀 ✨ 💫 ⭐ 🌀 ✨ 💫 ⭐
+    </div>
   </footer>
 
 </div>
 
 <!-- Fake click popup -->
-
 <div class="popup-overlay" id="linkPopup">
   <div class="popup-window">
     <div class="popup-titlebar">
@@ -894,134 +870,138 @@ footer .badge {
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Page navigation
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+  }
 
-// Page navigation
-function showPage(name) {
-document.querySelectorAll(’.page’).forEach(p => p.classList.remove(‘active’));
-document.getElementById(‘page-’ + name).classList.add(‘active’);
-}
+  // Music player
+  const audio = document.getElementById('bgMusic');
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const progressBar = document.getElementById('progressBar');
+  const progressWrap = document.getElementById('progressWrap');
+  const musicTime = document.getElementById('musicTime');
 
-// Music player
-const audio = document.getElementById(‘bgMusic’);
-const playPauseBtn = document.getElementById(‘playPauseBtn’);
-const progressBar = document.getElementById(‘progressBar’);
-const progressWrap = document.getElementById(‘progressWrap’);
-const musicTime = document.getElementById(‘musicTime’);
+  function formatTime(s) {
+    if (isNaN(s)) return '0:00';
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return m + ':' + String(sec).padStart(2, '0');
+  }
 
-function formatTime(s) {
-if (isNaN(s)) return ‘0:00’;
-const m = Math.floor(s / 60);
-const sec = Math.floor(s % 60);
-return m + ‘:’ + String(sec).padStart(2, ‘0’);
-}
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+      progressBar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+      musicTime.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
+    }
+  });
 
-audio.addEventListener(‘timeupdate’, () => {
-if (audio.duration) {
-progressBar.style.width = (audio.currentTime / audio.duration * 100) + ‘%’;
-musicTime.textContent = formatTime(audio.currentTime) + ’ / ’ + formatTime(audio.duration);
-}
-});
+  function toggleMusic() {
+    if (audio.paused) {
+      audio.play().catch(e => console.log('Audio play failed:', e));
+      playPauseBtn.textContent = '⏸';
+    } else {
+      audio.pause();
+      playPauseBtn.textContent = '▶';
+    }
+  }
 
-function toggleMusic() {
-if (audio.paused) {
-audio.play().catch(e => console.log(‘Audio play failed:’, e));
-playPauseBtn.textContent = ‘⏸’;
-} else {
-audio.pause();
-playPauseBtn.textContent = ‘▶’;
-}
-}
+  function seekMusic(e) {
+    if (!audio.duration) return;
+    const rect = progressWrap.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    audio.currentTime = pct * audio.duration;
+  }
 
-function seekMusic(e) {
-if (!audio.duration) return;
-const rect = progressWrap.getBoundingClientRect();
-const pct = (e.clientX - rect.left) / rect.width;
-audio.currentTime = pct * audio.duration;
-}
 
-// Fake link click
-function fakeClick(name) {
-document.getElementById(‘linkName’).textContent = name;
-document.getElementById(‘linkPopup’).classList.add(‘show’);
-setTimeout(() => closeLinkPopup(), 3500);
-}
-function closeLinkPopup() {
-document.getElementById(‘linkPopup’).classList.remove(‘show’);
-}
 
-// Sign guestbook
-let gbEntries = 5;
-function signGuestbook() {
-const name = document.getElementById(‘gbName’).value.trim();
-const msg = document.getElementById(‘gbMsg’).value.trim();
-if (!name || !msg) {
-alert(‘Please fill in your name AND message!! Duh!! 😜’);
-return;
-}
-gbEntries++;
-document.getElementById(‘gbCount’).textContent = gbEntries;
-const now = new Date();
-const dateStr = now.toLocaleDateString(‘en-US’, { month: ‘short’, day: ‘numeric’, year: ‘numeric’ });
-const entry = document.createElement(‘div’);
-entry.className = ‘gb-entry’;
-entry.innerHTML = `<span class="gb-name">✨ ${name}</span> <span class="gb-date">${dateStr}</span> <div class="gb-msg">${msg}</div>`;
-document.getElementById(‘guestbookEntries’).prepend(entry);
-document.getElementById(‘gbName’).value = ‘’;
-document.getElementById(‘gbMsg’).value = ‘’;
-alert(‘Thanks for signing!! You rule!! 🤘’);
-}
+  // Fake link click
+  function fakeClick(name) {
+    document.getElementById('linkName').textContent = name;
+    document.getElementById('linkPopup').classList.add('show');
+    setTimeout(() => closeLinkPopup(), 3500);
+  }
+  function closeLinkPopup() {
+    document.getElementById('linkPopup').classList.remove('show');
+  }
 
-// Poll
-function votePoll() {
-const selected = document.querySelector(‘input[name=“poll”]:checked’);
-if (!selected) {
-alert(‘Pick an answer first!! 😤’);
-return;
-}
-document.getElementById(‘pollVote’).style.display = ‘none’;
-document.getElementById(‘pollResults’).style.display = ‘block’;
-}
+  // Sign guestbook
+  let gbEntries = 5;
+  function signGuestbook() {
+    const name = document.getElementById('gbName').value.trim();
+    const msg = document.getElementById('gbMsg').value.trim();
+    if (!name || !msg) {
+      alert('Please fill in your name AND message!! Duh!! 😜');
+      return;
+    }
+    gbEntries++;
+    document.getElementById('gbCount').textContent = gbEntries;
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const entry = document.createElement('div');
+    entry.className = 'gb-entry';
+    entry.innerHTML = `
+      <span class="gb-name">✨ ${name}</span>
+      <span class="gb-date">${dateStr}</span>
+      <div class="gb-msg">${msg}</div>
+    `;
+    document.getElementById('guestbookEntries').prepend(entry);
+    document.getElementById('gbName').value = '';
+    document.getElementById('gbMsg').value = '';
+    alert('Thanks for signing!! You rule!! 🤘');
+  }
 
-// Quotes
-const quotes = [
-[’“The Internet is not just one thing, it's a collection of things.”’, ‘— Al Gore, probably’],
-[’“Be yourself; everyone else is already taken.”’, ‘— Oscar Wilde’],
-[’“To infinity and beyond!!”’, ‘— Buzz Lightyear’],
-[’“It's a UNIX system! I know this!”’, ‘— Jurassic Park (1993)’],
-[’“640K ought to be enough for anybody.”’, ‘— Bill Gates, allegedly’],
-[’“The Matrix has you…”’, ‘— The Matrix (1999)’],
-[’“I'm king of the world!!”’, ‘— Titanic (1997)’],
-[’“Stay hungry. Stay foolish.”’, ‘— Steve Jobs’],
-];
-function newQuote() {
-const [q, a] = quotes[Math.floor(Math.random() * quotes.length)];
-document.getElementById(‘quoteBox’).innerHTML = `<em>${q}</em><br><small>${a}</small>`;
-}
+  // Poll
+  function votePoll() {
+    const selected = document.querySelector('input[name="poll"]:checked');
+    if (!selected) {
+      alert('Pick an answer first!! 😤');
+      return;
+    }
+    document.getElementById('pollVote').style.display = 'none';
+    document.getElementById('pollResults').style.display = 'block';
+  }
 
-// Weather change
-function changeWeather() {
-const temp = Math.floor(Math.random() * 11) + 70;
-const box = document.querySelector(’.weather-box’);
-box.querySelector(’.weather-icon’).textContent = ‘😎’;
-box.querySelector(’.weather-temp’).textContent = temp + ‘°F’;
-box.querySelector(‘small’).textContent = ‘Sunny & Perfect!!’;
-}
-changeWeather();
+  // Quotes
+  const quotes = [
+    ['"The Internet is not just one thing, it\'s a collection of things."', '— Al Gore, probably'],
+    ['"Be yourself; everyone else is already taken."', '— Oscar Wilde'],
+    ['"To infinity and beyond!!"', '— Buzz Lightyear'],
+    ['"It\'s a UNIX system! I know this!"', '— Jurassic Park (1993)'],
+    ['"640K ought to be enough for anybody."', '— Bill Gates, allegedly'],
+    ['"The Matrix has you..."', '— The Matrix (1999)'],
+    ['"I\'m king of the world!!"', '— Titanic (1997)'],
+    ['"Stay hungry. Stay foolish."', '— Steve Jobs'],
+  ];
+  function newQuote() {
+    const [q, a] = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById('quoteBox').innerHTML = `<em>${q}</em><br><small>${a}</small>`;
+  }
 
-// Cursor sparkle trail
-const colors = [’#ff0000’,’#ff8800’,’#ffff00’,’#00ff00’,’#00ffff’,’#0088ff’,’#ff00ff’,’#ffffff’];
-document.addEventListener(‘mousemove’, (e) => {
-const dot = document.createElement(‘div’);
-dot.className = ‘cursor-dot’;
-dot.style.left = e.clientX + ‘px’;
-dot.style.top = e.clientY + ‘px’;
-dot.style.background = colors[Math.floor(Math.random() * colors.length)];
-dot.style.transition = ‘opacity 0.5s, transform 0.5s’;
-document.body.appendChild(dot);
-setTimeout(() => { dot.style.opacity = ‘0’; dot.style.transform = ‘translate(-50%,-50%) scale(0)’; }, 50);
-setTimeout(() => dot.remove(), 550);
-});
+  // Weather change
+  function changeWeather() {
+    const temp = Math.floor(Math.random() * 11) + 70;
+    const box = document.querySelector('.weather-box');
+    box.querySelector('.weather-icon').textContent = '😎';
+    box.querySelector('.weather-temp').textContent = temp + '°F';
+    box.querySelector('small').textContent = 'Sunny & Perfect!!';
+  }
+  changeWeather();
+
+  // Cursor sparkle trail
+  const colors = ['#ff0000','#ff8800','#ffff00','#00ff00','#00ffff','#0088ff','#ff00ff','#ffffff'];
+  document.addEventListener('mousemove', (e) => {
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    dot.style.left = e.clientX + 'px';
+    dot.style.top = e.clientY + 'px';
+    dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+    dot.style.transition = 'opacity 0.5s, transform 0.5s';
+    document.body.appendChild(dot);
+    setTimeout(() => { dot.style.opacity = '0'; dot.style.transform = 'translate(-50%,-50%) scale(0)'; }, 50);
+    setTimeout(() => dot.remove(), 550);
+  });
 </script>
-
 </body>
 </html>
