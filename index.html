@@ -443,6 +443,14 @@ footer .badge {
     </div>
   </div>
 </div>
+<script>
+  function closePopup() {
+    document.getElementById('welcomePopup').classList.remove('show');
+  }
+  document.getElementById('popupOK').addEventListener('click', closePopup);
+  document.getElementById('popupCancel').addEventListener('click', closePopup);
+  document.getElementById('popupCloseX').addEventListener('click', closePopup);
+</script>
 
 <!-- Top marquee -->
 
@@ -930,14 +938,6 @@ const rect = progressWrap.getBoundingClientRect();
 const pct = (e.clientX - rect.left) / rect.width;
 audio.currentTime = pct * audio.duration;
 }
-
-// Close welcome popup
-function closePopup() {
-document.getElementById(‘welcomePopup’).classList.remove(‘show’);
-}
-document.getElementById(‘popupOK’).addEventListener(‘click’, closePopup);
-document.getElementById(‘popupCancel’).addEventListener(‘click’, closePopup);
-document.getElementById(‘popupCloseX’).addEventListener(‘click’, closePopup);
 
 // Fake link click
 function fakeClick(name) {
